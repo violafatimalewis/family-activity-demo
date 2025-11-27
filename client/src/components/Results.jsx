@@ -1,10 +1,15 @@
-import ActivityCard from './ActivityCard';
-
 function Results({ activities, searchParams, onSearchAgain }) {
+  // Convert markdown-style bold (**text**) to HTML <strong> tags
+  const formatActivities = (text) => {
+    if (!text) return '';
+    // Replace **text** with <strong>text</strong>
+    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  };
+
   return (
     <div className="results-container">
       <div className="results-header">
-        <h2>Top 5 Recommendations</h2>
+        <h2>🎯 Top 5 Recommendations</h2>
         <div className="search-summary">
           <p>
             <strong>City:</strong> {searchParams.city} |
@@ -18,17 +23,12 @@ function Results({ activities, searchParams, onSearchAgain }) {
         </div>
       </div>
 
-      <div className="activities-list">
-        {activities.length > 0 ? (
-          activities.map((activity, index) => (
-            <div key={activity.id} className="activity-number-wrapper">
-              <div className="activity-number">{index + 1}</div>
-              <ActivityCard
-                activity={activity}
-                city={searchParams.city}
-              />
-            </div>
-          ))
+      <div className="activities-content">
+        {activities ? (
+          <div
+            className="activities-text"
+            dangerouslySetInnerHTML={{ __html: formatActivities(activities) }}
+          />
         ) : (
           <p className="no-results">No activities found. Please try a different search.</p>
         )}

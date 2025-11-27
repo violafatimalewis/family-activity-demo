@@ -435,3 +435,124 @@ body {
     font-size: 1.2rem;
   }
 }
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #f3f4f6;
+  border-top: 5px solid #0ea5e9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 2rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container h2 {
+  color: #0ea5e9;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.loading-container p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.loading-note {
+  font-style: italic;
+  font-size: 0.95rem !important;
+  color: #9ca3af;
+  margin-top: 1rem !important;
+}
+
+/* Error State */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-container h2 {
+  color: #ef4444;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.error-message {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.try-again-button {
+  background: #0ea5e9;
+  color: white;
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.try-again-button:hover {
+  background: #0284c7;
+  transform: translateY(-1px);
+}
+
+/* Activities Text Display */
+.activities-content {
+  margin-bottom: 2rem;
+}
+
+.activities-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #374151;
+  white-space: pre-wrap;
+}
+
+.activities-text strong {
+  color: #0ea5e9;
+  font-size: 1.3rem;
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.activities-text strong:first-child {
+  margin-top: 0;
+}
